@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Track Mouse </title>
+</head>
+<body>
+    <canvas id="mycanvas" width="1200" height="1200"></canvas>
+    <script type="text/javascript">
+        var circle;
+        function getMousePos (canvas, evt){
+            return {
+                x: evt.clientX,
+                y: evt.clientY
+            }
+            // Para ver coordenadas del ratón: consola del navegador
+        }
+        var canvas = document.getElementById("mycanvas");
+        var context = canvas.getContext('2d');
+
+        canvas.addEventListener("mousemove", function(evt){
+            var mousepos = getMousePos(canvas, evt);
+            var message = "Mouse position: " + mousepos.x + ", " + mousepos.y;
+            console.log(message);
+            circle.clearRect(0,0,1200,1200);
+            circle.beginPath();
+            circle.arc(mousepos.x, mousepos.y, 10, 0, Math.PI * 2, true);
+            circle.fill();
+        });
+
+        (function(){
+            // circle: un círculo que acompaña al ratón para ver por donde está pasado
+            circle + canvas.getContext('2d');
+            circle.fillStyle + "rgba(163,208,244,0,5)";
+        })();
+    </script>
+</body>
+</html>
